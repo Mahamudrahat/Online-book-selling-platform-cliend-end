@@ -25,23 +25,53 @@ export default function BookDetailpage() {
     }
 
     return (
-        <div className="container mx-auto my-10">
-            <div className="grid grid-cols-2 gap-4">
-            <img src={book.image} alt={book.bookName} className="rounded-lg shadow-2xl w-full" />
-                <div className="flex flex-col items-center justify-center">
-                <h1 className="text-3xl font-bold mt-4">{book.bookName}</h1>
-                <p className="text-xl mt-2">Author: {book.author}</p>
-                <p className="text-lg mt-1">Category: {book.category}</p>
-                <p className="text-lg mt-1">Total Pages: {book.totalPages}</p>
-                <p className="text-lg mt-1">Rating: {book.rating}</p>
-                <p className="text-lg mt-1">{book.review}</p>
-                <div className="mt-4">
-                    <p className="text-lg font-semibold">Tags:</p>
-                    <p>{book.tags.map(tag => `.${tag}`).join(' ')}</p> {/* Display tags in the required format */}
-                </div>
-            </div>
-            </div>
-                
+      <div className="container mx-auto my-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <img
+            src={book.image}
+            alt={book.bookName}
+            className="rounded-lg shadow-2xl w-full"
+          />
+          <div className="flex flex-col w-full p-3">
+            <h1 className="font-sans text-3xl font-bold">{book.bookName}</h1>
+            <p className="font-sans text-base font-bold">
+              Author:{" "}
+              <span className="text-base font-normal">{book.author}</span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              Category:{" "}
+              <span className="text-base font-normal">{book.category}</span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              Review:{" "}
+              <span className="text-base font-normal">{book.review}</span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              Tags:{" "}
+              <span className="text-base font-normal">
+                {book.tags.map((tag) => `${tag}`).join(",")}
+              </span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              TotalPages:{" "}
+              <span className="text-base font-normal">{book.totalPages}</span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              Publisher:{" "}
+              <span className="text-base font-normal">{book.publisher}</span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              YearOfPublishing:{" "}
+              <span className="text-base font-normal">
+                {book.yearOfPublishing}
+              </span>
+            </p>
+            <p className="font-sans text-base font-bold">
+              Rating:
+              <span className="text-base font-normal">{book.rating}</span>
+            </p>
+          </div>
         </div>
+      </div>
     );
 }
