@@ -17,7 +17,7 @@ export default function BookDetailpage() {
 
     useEffect(() => {
         getSingleBookById();
-    }, [bookId]);  // Re-fetch if `bookId` changes
+    }, []);  // Re-fetch if `bookId` changes
 
     // If `book` is null (i.e., still loading), show a loading message
     if (!book) {
@@ -26,8 +26,9 @@ export default function BookDetailpage() {
 
     return (
         <div className="container mx-auto my-10">
-            <div className="flex flex-col items-center justify-center">
-                <img src={book.image} alt={book.bookName} className="rounded-lg shadow-2xl w-1/2" />
+            <div className="grid grid-cols-2 gap-4">
+            <img src={book.image} alt={book.bookName} className="rounded-lg shadow-2xl w-full" />
+                <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl font-bold mt-4">{book.bookName}</h1>
                 <p className="text-xl mt-2">Author: {book.author}</p>
                 <p className="text-lg mt-1">Category: {book.category}</p>
@@ -39,6 +40,8 @@ export default function BookDetailpage() {
                     <p>{book.tags.map(tag => `.${tag}`).join(' ')}</p> {/* Display tags in the required format */}
                 </div>
             </div>
+            </div>
+                
         </div>
     );
 }
