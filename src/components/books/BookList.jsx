@@ -19,11 +19,9 @@ export default function BookList() {
     },[])
   return (
     <section className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
-        {
-            books.map((book)=>(
-                // return (<div>product:{book.bookId}</div>)
-                <SingleBookList key={book._bookId} book={book}></SingleBookList>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">{books.map((book)=>(
+            
+                <SingleBookList key={book._bookId} book={book}/>
             ))
         }
       </div>

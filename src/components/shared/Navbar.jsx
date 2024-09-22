@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +13,16 @@ export default function Navbar() {
         <div className="container mx-auto">
         <header className="flex items-center justify-between">
         <div className="flex gap-4">
-            <img src="./src/assets/booklog1.jpg" alt="" className="w-100 h-10"/>
+            <Link to={ROUTES.Home}><img src="./src/assets/booklog1.jpg" alt="" className="w-100 h-10"/></Link>
             <p className="font-serif font-[400]">Old Town Bookstore</p>
           </div>
           {/* Navbar */}
         <nav>
         <div className="hidden md:flex justify-center gap-4">
-              <div
-                className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg"
-              >
+        <Link to={ROUTES.Home} className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+              
                 Home
-              </div>
+              </Link>
               <div
                 className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg"
               >

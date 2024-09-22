@@ -6,7 +6,6 @@ import BookList from '../components/books/BookList'
 export default function Homepage() {
   return (
     <div>
-     <Navbar />
      <Banner />
      <BookList />
     </div>
