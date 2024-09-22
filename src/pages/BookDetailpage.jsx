@@ -27,12 +27,15 @@ export default function BookDetailpage() {
     return (
       <div className="container mx-auto my-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <img
+        <div className="p-3  border-4 border-gray-300 h-300">
+        <img
             src={book.image}
             alt={book.bookName}
             className="rounded-lg shadow-2xl w-full"
           />
-          <div className="flex flex-col w-full p-3">
+        </div>
+          
+          <div className="flex flex-col w-full p-3 border-4 border-gray-300 h-300">
             <h1 className="font-sans text-3xl font-bold">{book.bookName}</h1>
             <p className="font-sans text-base font-bold">
               Author:{" "}
@@ -70,6 +73,11 @@ export default function BookDetailpage() {
               Rating:
               <span className="text-base font-normal">{book.rating}</span>
             </p>
+            <div className="flex items-center justify-normal">
+            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4">Wish to Read</button>
+            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4">Add to Cart</button>
+            </div>
+         
           </div>
         </div>
       </div>

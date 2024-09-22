@@ -49,11 +49,11 @@ export default function Navbar() {
         </header>
         {isOpen && ( <div className="md:hidden bg-gray-100 p-4 mt-2 rounded-lg shadow-md">
           <div className="md:hidden flex flex-col mt-4 space-y-2">
-            <div
+          <Link to={ROUTES.Home}
               className="hover:text-orange-600 cursor-pointer text-sm"
             >
               Home
-            </div>
+            </Link>
             <div
               className="hover:text-orange-600 cursor-pointer text-sm"
             >
