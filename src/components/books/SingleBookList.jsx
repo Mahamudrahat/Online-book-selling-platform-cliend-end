@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes";
 
 export default function SingleBookList(props) {
     const {book}=props
@@ -18,7 +20,7 @@ export default function SingleBookList(props) {
     <p className="font-sans font-bold">Rating:<span className="font-[30]">{book.rating}</span></p>
 
     <div className="card-actions">
-      <button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">Book Details</button>
+      <Link to={ROUTES.Book}><button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">Book Details</button></Link>
     </div>
   </div>
 </div>
