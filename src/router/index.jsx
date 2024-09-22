@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
           },
 
         {
-            path: `${ROUTES.Book}`,
+            path: `${ROUTES.SINGLE_BOOKS.STATIC}`,
             element: <BookDetailpage />, 
         }
         ]
