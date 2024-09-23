@@ -21,7 +21,7 @@ yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init
 
 # Start the development server
-yarn start
+yarn run dev
 
 # Build for production
 yarn build
