@@ -91,12 +91,13 @@ export default function BookDetailpage() {
           </div>
         </div>
         {showToast && (
-        <div className="toast toast-top toast-end mt-4">
-        <div className="alert alert-success">
-          <span>BookId: {book.bookId}, BookName:{book.bookName} has been successfully added to 
-          the Cart/Wishlist.</span>
-        </div>
-      </div>
+       <div className="fixed top-4 right-4 z-50 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl p-4">
+       <div className="bg-green-500 text-black text-sm font-bold px-4 py-3 rounded-lg shadow-lg">
+         <span>
+           BookId: {book.bookId}, BookName: "{book.bookName}" has been successfully added to the Cart/Wishlist.
+         </span>
+       </div>
+     </div>
       )}
       </div>
       
