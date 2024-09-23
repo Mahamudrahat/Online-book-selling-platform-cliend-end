@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className="container mx-auto">
         <header className="flex items-center justify-between">
         <div className="flex gap-4">
-            <Link to={ROUTES.Home}><img src="./src/assets/booklog1.jpg" alt="" className="w-100 h-10"/></Link>
+            <Link to={ROUTES.Home}><img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/c039b824474525.56334ce736de9.jpg" alt="" className="w-100 h-10"/></Link>
             <p className="font-serif font-[400]">Old Town Bookstore</p>
           </div>
           {/* Navbar */}
