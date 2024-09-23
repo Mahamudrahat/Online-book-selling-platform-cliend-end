@@ -4,16 +4,28 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-## First install Yarn Globally: 
- npm install --global yarn
- yarn --version
-## Use Yarn to create a new React application
- yarn create react-app my-app
-## Install React Router
+# Install Yarn globally (if not installed)
+npm install --global yarn
+
+# Create a new React app
+yarn create react-app my-app
+cd my-app
+
+# Install React Router
 yarn add react-router-dom
-## Install Tailwind CSS via Yarn
+
+# Install Tailwind CSS and dependencies
 yarn add -D tailwindcss postcss autoprefixer
+
+# Initialize Tailwind CSS config
 npx tailwindcss init
+
+# Start the development server
+yarn start
+
+# Build for production
+yarn build
+
 
 
 
