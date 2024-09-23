@@ -6,6 +6,7 @@ import { ROUTES } from "../routes";
 import Homepage from "../pages/Homepage";
 import CommonLayout from "../layout/CommonLayout";
 import BookDetailpage from "../pages/BookDetailpage";
+import Faqpage from "../pages/Faqpage";
 
 
 export const router = createBrowserRouter([
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
         {
             path: `${ROUTES.Home}`,
             element: <Homepage />,
+          },
+          {
+            path: `${ROUTES.FAQ}`,
+            element: <Faqpage />,
           },
 
         {

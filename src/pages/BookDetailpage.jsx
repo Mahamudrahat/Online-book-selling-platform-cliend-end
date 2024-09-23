@@ -36,8 +36,8 @@ export default function BookDetailpage() {
     }
 
     return (
-      <div className="container mx-auto my-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="container mx-auto my-10 min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
         <div className="p-3  border-4 border-gray-300 h-300">
         <img
             src={book.image}

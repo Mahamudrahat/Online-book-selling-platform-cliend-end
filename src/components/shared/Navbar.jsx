@@ -31,9 +31,10 @@ export default function Navbar() {
               <span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Blog
               </span>
-              <span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+              <Link to={ROUTES.FAQ}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 FAQ
-              </span>
+              </span></Link>
+              
             </div>
             <button
               className="p-2 md:hidden focus:outline-none"
@@ -62,9 +63,11 @@ export default function Navbar() {
             <span className="hover:text-orange-600 cursor-pointer text-sm">
               Blog
             </span>
+            <Link to={ROUTES.FAQ}>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
              FAQ
-            </span>
+            </span></Link>
+            
             <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Buy Book</button>
             <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button>
           </div>
