@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 export default function BookDetailpage() {
     let { bookId } = useParams();  // Get bookId from the URL parameters
-    const [book, setBook] = useState(null);  // Use `null` initially for better handling of the loading state
-
+    const [book, setBook] = useState(null); 
+    const [showToast, setShowToast] = useState(false);
+    
     const getSingleBookById = async () => {
         const data = await fetch("/Book.json");  // Fetch the Book.json file
         const result = await data.json();        // Parse the JSON response
@@ -14,6 +16,15 @@ export default function BookDetailpage() {
             setBook(foundBook);  // Set the found book to state
         }
     };
+
+    const handleToast = () => {
+        setShowToast(true);
+        
+        // Hide the toast after 3 seconds
+        setTimeout(() => {
+          setShowToast(false);
+        }, 6000);  // 3 seconds
+      };
 
     useEffect(() => {
         getSingleBookById();
@@ -74,12 +85,20 @@ export default function BookDetailpage() {
               <span className="text-base font-normal">{book.rating}</span>
             </p>
             <div className="flex items-center justify-normal">
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4">Wish to Read</button>
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4">Add to Cart</button>
+            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4" onClick={handleToast}>Wish to Read</button>
+            <button type="button" className="bg-orange-900 text-white p-2 rounded-md m-4" onClick={handleToast}>Add to Cart</button>
             </div>
-         
           </div>
         </div>
+        {showToast && (
+        <div className="toast toast-top toast-end mt-4">
+        <div className="alert alert-success">
+          <span>BookId: {book.bookId}, BookName:{book.bookName} has been successfully added to 
+          the Cart/Wishlist.</span>
+        </div>
       </div>
+      )}
+      </div>
+      
     );
 }
