@@ -7,6 +7,7 @@ import Homepage from "../pages/Homepage";
 import CommonLayout from "../layout/CommonLayout";
 import BookDetailpage from "../pages/BookDetailpage";
 import Faqpage from "../pages/Faqpage";
+import NotFound from "../components/NotFound";
 
 
 export const router = createBrowserRouter([
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
         {
             path: `${ROUTES.SINGLE_BOOKS.STATIC}`,
             element: <BookDetailpage />, 
-        }
+        },
+        {
+            path: "*",
+            element: <NotFound />, 
+        },
         ]
     },
   ]);
