@@ -26,13 +26,13 @@ export default function Navbar() {
               <div
                 className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg"
               >
-                About
+                About Us
               </div>
               <span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
-                Blog
+                Contact Us
               </span>
               <Link to={ROUTES.FAQ}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
-                FAQ
+                Courses
               </span></Link>
               
             </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
             </button>
         </nav>
         <div className="space-x-4 hidden md:flex">
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Buy Book</button>
+            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button>
             <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button>
         </div>
         </header>
@@ -58,18 +58,18 @@ export default function Navbar() {
             <div
               className="hover:text-orange-600 cursor-pointer text-sm"
             >
-              About
+              About Us
             </div>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
-              Blog
+              Contact Us
             </span>
             <Link to={ROUTES.FAQ}>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
-             FAQ
+             Courses
             </span></Link>
             
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Buy Book</button>
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button>
+           <Link to=""><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
+            <Link to=""><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
           </div>
        </div> )
         } 

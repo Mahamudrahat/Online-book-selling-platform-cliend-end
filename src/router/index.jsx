@@ -8,6 +8,8 @@ import CommonLayout from "../layout/CommonLayout";
 import BookDetailpage from "../pages/BookDetailpage";
 import Faqpage from "../pages/Faqpage";
 import NotFound from "../components/NotFound";
+import Login from "../login/Login";
+import Register from "../register/Register";
 
 
 export const router = createBrowserRouter([
@@ -32,6 +34,15 @@ export const router = createBrowserRouter([
             path: "*",
             element: <NotFound />, 
         },
+        {
+          path:`${ROUTES.LOGIN}`,
+          element:<Login/>,
+        },
+        {
+          path:`${ROUTES.REGISTER}`,
+          element:<Register/>,
+        },
+
         ]
     },
   ]);
