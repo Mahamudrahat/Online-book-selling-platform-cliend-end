@@ -54,7 +54,7 @@ export default function Register() {
           <div className="flex h-full flex-col justify-center gap-4 p-6">
             <div className="left-0 right-0 inline-block border-gray-200 px-2 py-2.5 sm:px-4">
               <form
-                onSubmit=""
+                onSubmit={handleRegister}
                 className="flex flex-col gap-4 pb-4"
               >
                 <h1 className="mb-4 text-2xl font-bold dark:text-white text-center">

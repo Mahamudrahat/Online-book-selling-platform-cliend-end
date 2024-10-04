@@ -1,9 +1,20 @@
-import {useState} from 'react'
-import { Link } from "react-router-dom";
-import { ROUTES } from "../../routes";
+import React, { useContext, useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../Provider/AuthProvider';
+import { ROUTES } from '../../routes';
+
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const {user,logOut}=useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleSignOut=()=>{
+        logOut().then(()=>{
+            navigate("/login")
+        }).catch((error)=>{
+            console.error(error);
+        })
+    };
 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
@@ -44,8 +55,27 @@ export default function Navbar() {
             </button>
         </nav>
         <div className="space-x-4 hidden md:flex">
-        <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
-        <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
+        
+        {user ? (
+          <div className="flex justify-center items-center">
+            <span className="text-black px-2">{user.displayName}</span>
+            <img src={user.photoURL} alt="profilePicture" className="w-10 h-10 rounded-full border border-orange-800 p-1 m-2"/>
+            <Link to="/login">
+              <button
+                onClick={handleSignOut}
+                className="bg-orange-900 text-white p-2 rounded-md"
+              >
+                LogOut
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="navbar-end">
+            
+            <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Login/Register</button></Link>
+          
+          </div>
+        )}
         </div>
         </header>
         {isOpen && ( <div className="md:hidden bg-gray-100 p-4 mt-2 rounded-lg shadow-md">
@@ -67,9 +97,29 @@ export default function Navbar() {
             <span className="hover:text-orange-600 cursor-pointer text-sm">
              Courses
             </span></Link>
+            {user ? (
+          <div className="navbar-end">
+            <span className="text-black px-2">{user.displayName}</span>
+            <img src={user.photoURL} alt="profilePicture" className="w-10 h-10 rounded-full border border-white p-1 m-2"/>
+            <Link to="/login">
+              <button
+                onClick={handleSignOut}
+                className="bg-orange-900 text-white p-2 rounded-mdt"
+              >
+                LogOut
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="navbar-end">
+           
+            <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Login/Register</button></Link>
+           
+          </div>
+        )}
             
-           <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
-            <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
+           
+            
           </div>
        </div> )
         } 
