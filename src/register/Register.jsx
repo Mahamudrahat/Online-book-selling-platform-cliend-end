@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import Navbar from '../pages/shared/navbar/Navbar'
-import { Link, useNavigate } from 'react-router-dom'
+// import Navbar from '../pages/shared/navbar/Navbar'
+ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
 import toast from 'react-hot-toast';
 import { signOut } from 'firebase/auth';
@@ -47,14 +47,14 @@ export default function Register() {
       
   return (
     <div>
-    <Navbar></Navbar>
+    
     <div className="py-20">
       <div className="flex h-full items-center justify-center">
         <div className="rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-900 flex-col flex h-full items-center justify-center sm:px-4">
           <div className="flex h-full flex-col justify-center gap-4 p-6">
             <div className="left-0 right-0 inline-block border-gray-200 px-2 py-2.5 sm:px-4">
               <form
-                onSubmit={handleRegister}
+                onSubmit=""
                 className="flex flex-col gap-4 pb-4"
               >
                 <h1 className="mb-4 text-2xl font-bold dark:text-white text-center">

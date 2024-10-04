@@ -44,8 +44,8 @@ export default function Navbar() {
             </button>
         </nav>
         <div className="space-x-4 hidden md:flex">
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button>
-            <button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button>
+        <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
+        <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
         </div>
         </header>
         {isOpen && ( <div className="md:hidden bg-gray-100 p-4 mt-2 rounded-lg shadow-md">
@@ -68,8 +68,8 @@ export default function Navbar() {
              Courses
             </span></Link>
             
-           <Link to=""><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
-            <Link to=""><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
+           <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign Up</button></Link> 
+            <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Sign In</button></Link>
           </div>
        </div> )
         } 
