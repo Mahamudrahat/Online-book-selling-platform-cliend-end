@@ -31,7 +31,6 @@ export default function Login() {
 
          }
 const handleGoogleLogin=()=>{
-    console.log("hell0");
             loginWithGoogle().then((res)=>{console.log(res);
             navigate(location?.state ? location.state : "/");
             }).catch((error)=>{

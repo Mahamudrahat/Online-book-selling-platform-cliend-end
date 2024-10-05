@@ -11,6 +11,8 @@ import NotFound from "../components/NotFound";
 import Login from "../login/Login";
 import Register from "../register/Register";
 import PrivateRoute from "./PrivateRoutes";
+import CourseDetailsPage from "../pages/CourseDetailsPage";
+import SingleCourseDetailPage from "../pages/SingleCourseDetailPage";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +36,16 @@ export const router = createBrowserRouter([
             </PrivateRoute>
            
         },
+        {
+          path: `${ROUTES.SINGLE_COURSES.STATIC}`,
+          element: <SingleCourseDetailPage />, 
+         
+      },
+        {
+          path: `${ROUTES.COURSE}`,
+          element: <CourseDetailsPage/>
+         
+      },
         {
             path: "*",
             element: <NotFound />, 

@@ -20,12 +20,12 @@ export default function Navbar() {
       setIsOpen(!isOpen);
     };
   return (
-    <section className="bg-orange-300 p-4">
+    <section className="bg-[#dea1fe] p-4">
         <div className="container mx-auto">
         <header className="flex items-center justify-between">
         <div className="flex gap-4">
-            <Link to={ROUTES.Home}><img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/c039b824474525.56334ce736de9.jpg" alt="" className="w-100 h-10"/></Link>
-            <p className="font-serif font-[400]">Old Town Bookstore</p>
+            <Link to={ROUTES.Home}><img src="https://media.istockphoto.com/id/1146021242/vector/distant-learning-online-education-graduate-hat-on-a-laptop.jpg?s=612x612&w=0&k=20&c=X3prrYH9KfPdDke0DGdnRjk-sKBgebP6byGMg-ce8Rc=" alt="" className="w-100 h-10 rounded-lg"/></Link>
+            <p className="font-serif font-[400]">Online Edu Care</p>
           </div>
           {/* Navbar */}
         <nav>
@@ -42,7 +42,7 @@ export default function Navbar() {
               <span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Contact Us
               </span>
-              <Link to={ROUTES.FAQ}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+              <Link to={ROUTES.COURSE}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Courses
               </span></Link>
               
@@ -93,7 +93,7 @@ export default function Navbar() {
             <span className="hover:text-orange-600 cursor-pointer text-sm">
               Contact Us
             </span>
-            <Link to={ROUTES.FAQ}>
+            <Link to={ROUTES.COURSE}>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
              Courses
             </span></Link>

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer class="bg-orange-300 mt-4">
+    <footer class="bg-[#dea1fe] mt-4">
         <div class="footer  text-base-content p-10 container mx-auto flex justify-between">
         <aside>
       <p>
