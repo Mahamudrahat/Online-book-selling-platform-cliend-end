@@ -10,6 +10,7 @@ import Faqpage from "../pages/Faqpage";
 import NotFound from "../components/NotFound";
 import Login from "../login/Login";
 import Register from "../register/Register";
+import PrivateRoute from "./PrivateRoutes";
 
 
 export const router = createBrowserRouter([
@@ -28,7 +29,10 @@ export const router = createBrowserRouter([
 
         {
             path: `${ROUTES.SINGLE_BOOKS.STATIC}`,
-            element: <BookDetailpage />, 
+            element: <PrivateRoute>
+                <BookDetailpage />, 
+            </PrivateRoute>
+           
         },
         {
             path: "*",

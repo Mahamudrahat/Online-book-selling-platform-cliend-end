@@ -10,23 +10,29 @@ export default function AuthProvider({children}) {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth(app);
     const [user,setUser]=useState([]);
+    const [loading, setLoading] = useState(true);
     
     const loginWithGoogle=()=>{
+        setLoading(true);
         return signInWithPopup(auth,googleProvider);
     }
 
     const createUser=(email,password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     const loginUser=(email,password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth,email,password);
     }
     const logOut=()=>{
+        setLoading(true);
         return signOut(auth);
     }
 
     const updateUserProfile=(profileInfo)=>{
+        setLoading(true);
         return updateProfile(auth.currentUser,profileInfo);
     }
     
@@ -34,12 +40,14 @@ export default function AuthProvider({children}) {
         const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser);
             console.log()
+            setLoading(false);
         });
         return ()=>{unsubscribe()};
     })
 
     const authInfo={
         user,
+        loading,
         createUser,
         loginUser,
         logOut,
