@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 
 export default function Login() {
-    const {loginUser,loginWithGoogle}=useContext(AuthContext);
+    const {loginUser,loginWithGoogle,loginWithGitHub}=useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log("Location in the login page", location);
@@ -32,11 +32,24 @@ export default function Login() {
          }
 const handleGoogleLogin=()=>{
             loginWithGoogle().then((res)=>{console.log(res);
+                toast.success("User Google Login Successfully",{
+                    position:"top-right"
+                });
             navigate(location?.state ? location.state : "/");
             }).catch((error)=>{
             console.error(error);
             });
             }
+const handleGithubLogin=()=>{
+    loginWithGitHub().then((res)=>{console.log(res);
+        toast.success("User GitHub Login Successfully",{
+            position:"top-right"
+        });
+    navigate(location?.state ? location.state : "/");
+    }).catch((error)=>{
+    console.error(error);
+    });
+        }
   return (
     <div>
      
@@ -117,7 +130,7 @@ const handleGoogleLogin=()=>{
                         Sign in with Google
                       </span>
                     </button>
-                    <button type="button" className="btn btn-outline mt-2">
+                    <button onClick={handleGithubLogin} type="button" className="btn btn-outline mt-2">
                       <span className="flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false">
                         Sign in with GitHub
                       </span>

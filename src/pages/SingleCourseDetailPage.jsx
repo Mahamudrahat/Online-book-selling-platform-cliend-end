@@ -13,7 +13,7 @@ export default function SingleCourseDetailPage() {
     const [course,setCourse]=useState(null);
     const getSingleCourseDetail=async ()=>{
         console.log("course_id",id);
-        const data=await fetch(`http://localhost:5000/courses/${id}`)
+        const data=await fetch(`https://online-edu-care.vercel.app/courses/${id}`)
         const result=await data.json();
         if (result) {
             setCourse(result);  // Set the found book to state

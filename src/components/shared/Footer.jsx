@@ -6,14 +6,14 @@ export default function Footer() {
         <div class="footer  text-base-content p-10 container mx-auto flex justify-between">
         <aside>
       <p>
-        Old Town Kitchen Since 1992
+        Online Edu Care 2012
       </p>
 
-      <p>@ All Rights Reserved. Old Town BookStore</p>
+      <p>@ All Rights Reserved. Online Edu Care</p>
     </aside>
   
     <nav>
-      <h6 class="footer-title">Old Town BookStore</h6>
+      <h6 class="footer-title">Online Edu Care</h6>
       <p><i class="fa-brands fa-facebook"></i><span class="m-2"><a href="https://www.facebook.com" target="_blank">Facebook</a></span></p>
       <p><i class="fa-brands fa-youtube"></i><span class="m-2"><a href="https://www.youtube.com" target="_blank">YouTube</a></span></p>
       <p class="">Contact: Lal Bag, Old Town, Dhaka</p>

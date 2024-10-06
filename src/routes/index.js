@@ -5,6 +5,8 @@ export const ROUTES={
     LOGIN:"/login",
     REGISTER:"/register",
     COURSE:"/course",
+    ABOUTUS:"/aboutus",
+    CONTACTUS:"/contactus",
     SINGLE_BOOKS:{
          STATIC: "/books/:bookId",
          DYNAMIC: (bookId) => `/books/${bookId}`,

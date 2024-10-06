@@ -8,7 +8,7 @@ export default function BookDetailpage() {
     const [showToast, setShowToast] = useState(false);
     
     const getSingleBookById = async () => {
-        const data = await fetch(`http://localhost:5000/books/${bookId}`);  // Fetch the Book.json file
+        const data = await fetch(`https://online-edu-care.vercel.app/books/${bookId}`);  // Fetch the Book.json file
         const result = await data.json();        // Parse the JSON response
         //const foundBook = result.find(b => b.bookId === parseInt(bookId));  // Find the book that matches the bookId
 

@@ -34,14 +34,14 @@ export default function Navbar() {
               
                 Home
               </Link>
-              <div
+              <Link to={ROUTES.ABOUTUS}
                 className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg"
               >
                 About Us
-              </div>
-              <span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+              </Link>
+              <Link to={ROUTES.CONTACTUS} className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Contact Us
-              </span>
+              </Link>
               <Link to={ROUTES.COURSE}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Courses
               </span></Link>
@@ -85,14 +85,14 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <div
+            <Link to={ROUTES.ABOUTUS}
               className="hover:text-orange-600 cursor-pointer text-sm"
             >
               About Us
-            </div>
-            <span className="hover:text-orange-600 cursor-pointer text-sm">
+            </Link>
+            <Link to={ROUTES.CONTACTUS} className="hover:text-orange-600 cursor-pointer text-sm">
               Contact Us
-            </span>
+            </Link>
             <Link to={ROUTES.COURSE}>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
              Courses
@@ -113,7 +113,7 @@ export default function Navbar() {
         ) : (
           <div className="navbar-end">
            
-            <Link to={ROUTES.REGISTER}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Login/Register</button></Link>
+            <Link to={ROUTES.LOGIN}><button type="button" className="bg-orange-900 text-white p-2 rounded-md">Login/Register</button></Link>
            
           </div>
         )}

@@ -13,6 +13,8 @@ import Register from "../register/Register";
 import PrivateRoute from "./PrivateRoutes";
 import CourseDetailsPage from "../pages/CourseDetailsPage";
 import SingleCourseDetailPage from "../pages/SingleCourseDetailPage";
+import AboutUs from "../components/aboutus/AboutUs";
+import ContactUs from "../components/contactus/ContactUs";
 
 
 export const router = createBrowserRouter([
@@ -38,7 +40,10 @@ export const router = createBrowserRouter([
         },
         {
           path: `${ROUTES.SINGLE_COURSES.STATIC}`,
-          element: <SingleCourseDetailPage />, 
+          element: <PrivateRoute>
+             <SingleCourseDetailPage />, 
+          </PrivateRoute>
+         
          
       },
         {
@@ -57,6 +62,14 @@ export const router = createBrowserRouter([
         {
           path:`${ROUTES.REGISTER}`,
           element:<Register/>,
+        },
+        {
+          path:`${ROUTES.ABOUTUS}`,
+          element:<AboutUs/>,
+        },
+        {
+          path:`${ROUTES.CONTACTUS}`,
+          element:<ContactUs/>,
         },
 
         ]
