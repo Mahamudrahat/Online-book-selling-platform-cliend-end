@@ -7,6 +7,7 @@ import { ROUTES } from '../../routes';
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const {user,logOut}=useContext(AuthContext);
+    //console.log(user);
     const navigate = useNavigate();
     const handleSignOut=()=>{
         logOut().then(()=>{
@@ -34,6 +35,9 @@ export default function Navbar() {
               
                 Home
               </Link>
+              <Link to={ROUTES.DASHBOARD} className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+              DashBoard
+            </Link>
               <Link to={ROUTES.ABOUTUS}
                 className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg"
               >
@@ -59,7 +63,7 @@ export default function Navbar() {
         {user ? (
           <div className="flex justify-center items-center">
             <span className="text-black px-2">{user.displayName}</span>
-            <img src={user.photoURL} alt="profilePicture" className="w-10 h-10 rounded-full border border-orange-800 p-1 m-2"/>
+            <img src={user.photoUrl} alt="profilePicture" className="w-10 h-10 rounded-full border border-orange-800 p-1 m-2"/>
             <Link to="/login">
               <button
                 onClick={handleSignOut}
@@ -85,6 +89,9 @@ export default function Navbar() {
             >
               Home
             </Link>
+            <Link to={ROUTES.DASHBOARD} className="hover:text-orange-600 cursor-pointer text-sm">
+              DashBoard
+            </Link>
             <Link to={ROUTES.ABOUTUS}
               className="hover:text-orange-600 cursor-pointer text-sm"
             >
@@ -100,7 +107,7 @@ export default function Navbar() {
             {user ? (
           <div className="navbar-end">
             <span className="text-black px-2">{user.displayName}</span>
-            <img src={user.photoURL} alt="profilePicture" className="w-10 h-10 rounded-full border border-white p-1 m-2"/>
+            <img src={user.photoUrl} alt="profilePicture" className="w-10 h-10 rounded-full border border-white p-1 m-2"/>
             <Link to="/login">
               <button
                 onClick={handleSignOut}

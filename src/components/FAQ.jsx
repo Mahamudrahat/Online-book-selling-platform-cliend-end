@@ -1,121 +1,64 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export default function FAQ() {
-  return (
-    <section class="my-20">
-      <h1 class="text-center text-3xl my-20">FAQ Section</h1>
-      <div class="collapse collapse-arrow bg-base-200 ">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title text-xl font-medium">
-          9.1 what is React.js and Explain the concept of "components" in React.{" "}
+const FAQ = () => {
+    const [openQuestion, setOpenQuestion] = useState(null);
+
+    const toggleQuestion = (index) => {
+        setOpenQuestion(openQuestion === index ? null : index);
+    };
+
+    const faqs = [
+        {
+            question: "How do I place an order?",
+            answer: "To place an order, browse through our book collection, add your desired items to the cart, and proceed to checkout. You can either create an account or checkout as a guest.",
+        },
+        {
+            question: "What payment methods do you accept?",
+            answer: "We accept major credit cards, debit cards, PayPal, and other secure payment options such as Google Pay and Apple Pay.",
+        },
+        {
+            question: "Can I track my order?",
+            answer: "Yes, once your order has been shipped, you'll receive an email with a tracking number. You can also track your order through your account page.",
+        },
+        {
+            question: "What is your return policy?",
+            answer: "We offer a 30-day return policy for books in their original condition. To initiate a return, please contact our customer service team.",
+        },
+        {
+            question: "Do you offer international shipping?",
+            answer: "Yes, we offer worldwide shipping. International shipping costs and delivery times may vary based on the destination.",
+        },
+        {
+            question: "How can I contact customer support?",
+            answer: "You can reach out to our customer support team via the contact form on our website, or by emailing support@bookstore.com.",
+        },
+    ];
+
+    return (
+        <div className="max-w-5xl mx-auto p-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                    <div key={index} className="border-b-2 pb-4">
+                        <button
+                            onClick={() => toggleQuestion(index)}
+                            className="w-full text-left flex justify-between items-center py-4 text-lg font-semibold text-gray-700 hover:text-blue-500 focus:outline-none"
+                        >
+                            {faq.question}
+                            <span className="text-xl">
+                                {openQuestion === index ? "-" : "+"}
+                            </span>
+                        </button>
+                        {openQuestion === index && (
+                            <div className="text-gray-600 mt-2">
+                                {faq.answer}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
-        <div class="collapse-content">
-          <p>
-            React.js is a JavaScript library for building dynamic user
-            interfaces. Its core concept is "components," which are reusable,
-            self-contained blocks of code that define parts of the UI.
-            Components manage their own state and logic, allowing for modular,
-            efficient, and maintainable web applications.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.2 What is JSX in React, and how does it work?{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            JSX (JavaScript XML) is a syntax extension for JavaScript used in
-            React to describe what the UI should look like. It allows developers
-            to write HTML-like code within JavaScript, making the code more
-            readable and intuitive. JSX is compiled into regular JavaScript (via
-            tools like Babel), transforming tags into React.createElement()
-            calls.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.3 What is the Virtual DOM, and how does React use it to optimize
-          performance?{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            The Virtual DOM (VDOM) is a lightweight, in-memory representation of
-            the actual DOM. React updates the VDOM when the UI changes, compares
-            it with the previous version (diffing), and only updates the actual
-            DOM where necessary. This process, called "reconciliation," boosts
-            performance by minimizing expensive DOM operations.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.4 Explain the concept of "props" in React and how they are used.{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            In React, props (short for "properties") are used to pass data from
-            one component to another, typically from a parent to a child
-            component. Props are read-only and immutable, allowing components to
-            be reusable and dynamic. They enable components to receive values,
-            functions, or data to render content dynamically based on external
-            input.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.5 What is "state" in React, and how does it differ from props?{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            In React, "state" refers to a component's internal data that can
-            change over time, affecting rendering. It is managed within the
-            component using useState or this.setState. In contrast, "props"
-            (short for properties) are read-only inputs passed from parent to
-            child components, used to configure them. State is mutable; props
-            are immutable.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.6 Explain the useState hook and provide an example of how it is
-          used.{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            The useState hook in React allows functional components to manage
-            state. It returns an array: the current state value and a function
-            to update it.
-          </p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title text-xl font-medium">
-          9.7 What is the purpose of the useEffect hook in React, and when would
-          you use it?{" "}
-        </div>
-        <div class="collapse-content">
-          <p>
-            The useEffect hook in React is used to manage side effects in
-            functional components, such as data fetching, subscriptions, or
-            manually changing the DOM. It runs after the component renders and
-            can be configured to run on specific state or prop changes. When to
-            use it: Data Fetching: To fetch data from an API when the component
-            mounts. Subscriptions: To set up and clean up subscriptions (e.g.,
-            WebSocket). DOM Manipulation: To directly manipulate the DOM after
-            rendering.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
+    );
+};
+
+export default FAQ;

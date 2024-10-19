@@ -7,6 +7,7 @@ export const ROUTES={
     COURSE:"/course",
     ABOUTUS:"/aboutus",
     CONTACTUS:"/contactus",
+    
     SINGLE_BOOKS:{
          STATIC: "/books/:bookId",
          DYNAMIC: (bookId) => `/books/${bookId}`,
@@ -17,4 +18,6 @@ export const ROUTES={
         DYNAMIC: (id) => `/course/${id}`,
 
     },
+    DASHBOARD:"/dashboard",
+    Category:"categories",
 }

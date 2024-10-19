@@ -21,7 +21,7 @@ export default function Register() {
          console.log(name, photo, email, password);
          const updateProfileInfo={displayName:name,photoURL:photo}
     
-        createUser(email, password)
+        createUser(email, password,name,photo)
           .then((result) => {
             console.log(result?.user);
             updateUserProfile(updateProfileInfo)

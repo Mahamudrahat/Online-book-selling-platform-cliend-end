@@ -15,6 +15,10 @@ import CourseDetailsPage from "../pages/CourseDetailsPage";
 import SingleCourseDetailPage from "../pages/SingleCourseDetailPage";
 import AboutUs from "../components/aboutus/AboutUs";
 import ContactUs from "../components/contactus/ContactUs";
+import DashboardLayout from "../layout/DashboardLayout";
+import Category from "../components/category/Category";
+import Profile from "../components/profile/Profile";
+//import CategoryForm from "../components/category/Category";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +76,23 @@ export const router = createBrowserRouter([
           element:<ContactUs/>,
         },
 
+
         ]
+       
     },
+    {
+      path: `${ROUTES.DASHBOARD}`,
+      element: <DashboardLayout />,
+      children:[
+        {
+          path: "",
+          element: <Profile />,
+        },
+      
+        {
+          path:`${ROUTES.Category}`,
+          element:<Category/>,
+        },
+      ],
+    }
   ]);
