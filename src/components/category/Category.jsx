@@ -17,7 +17,8 @@ const Category = () => {
     }
 
       // Access the API key from environment variables
-      const API_KEY = "168e7c8e27cebf8ce76848267e6395fe";
+      const API_KEY = process.env.REACT_IBB_API_KEY;
+      
       console.log(API_KEY);
 
      // Step 1: Upload image to IMGBB
