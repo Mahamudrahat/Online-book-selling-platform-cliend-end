@@ -6,19 +6,18 @@ const Category = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
 
-  // Handle form submission
+  
   const onSubmit = async (data) => {
     try {
       const formData = new FormData();
 
-      // Append image to FormData
+   
       if (data.image[0]) {
         formData.append("image", data.image[0]); // Use the key 'image'
     }
 
       // Access the API key from environment variables
-      const API_KEY = process.env.REACT_IBB_API_KEY;
-      
+      const API_KEY = import.meta.env.VITE_IBB_API_KEY;
       console.log(API_KEY);
 
      // Step 1: Upload image to IMGBB
@@ -51,7 +50,7 @@ const Category = () => {
       const categoryResponse = await fetch("http://localhost:5000/categories", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${API_KEY}`,
+          
           "Content-Type": "application/json",
         },
         body: JSON.stringify(categoryData), // Send JSON body for the category

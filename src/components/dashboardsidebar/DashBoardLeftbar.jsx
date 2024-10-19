@@ -3,6 +3,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { CgProfile } from "react-icons/cg";
 import { MdBlock } from "react-icons/md";
 import { Link, NavLink } from 'react-router-dom';
+
 import {
     FaUser,
     FaUsers,
@@ -54,6 +55,17 @@ export default function DashBoardLeftbar() {
                 >
                   <BiSolidCategoryAlt className="inline mr-2" />
                   Category
+                </Link>
+                <Link
+                  to={ROUTES.PRODUCT}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-600"
+                      : "text-gray-600 hover:text-blue-500"
+                  }
+                >
+                  <BiSolidCategoryAlt className="inline mr-2" />
+                  Products
                 </Link>
                 </>
             )}

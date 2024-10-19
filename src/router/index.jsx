@@ -18,6 +18,7 @@ import ContactUs from "../components/contactus/ContactUs";
 import DashboardLayout from "../layout/DashboardLayout";
 import Category from "../components/category/Category";
 import Profile from "../components/profile/Profile";
+import Product from "../components/product/Product";
 //import CategoryForm from "../components/category/Category";
 
 
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
         {
           path:`${ROUTES.Category}`,
           element:<Category/>,
+        },
+        {
+          path:`${ROUTES.PRODUCT}`,
+          element:<Product/>,
         },
       ],
     }

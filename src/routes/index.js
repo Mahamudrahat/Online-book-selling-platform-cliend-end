@@ -20,4 +20,5 @@ export const ROUTES={
     },
     DASHBOARD:"/dashboard",
     Category:"categories",
+    PRODUCT:"/dashboard/products"
 }
