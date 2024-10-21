@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { getAllBook } from '../../utils/Book';
+import { getAllCategory } from '../../utils/Category';
 import SingleCategoryList from './SingleCategoryList';
 
 export default function CategoryList() {
     const [books, setBooks] = useState([]);
-    const getAllbookList=async ()=>{
-        const data=await getAllBook();
+    const getAllCategoryList=async ()=>{
+        const data=await getAllCategory();
         if(data.length>0){
             setBooks(data);       
         }
@@ -15,7 +15,7 @@ export default function CategoryList() {
         
     }
     useEffect(()=>{
-        getAllbookList();
+      getAllCategoryList();
     },[])
   return (
     <section className="container mx-auto">

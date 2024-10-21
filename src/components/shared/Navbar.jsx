@@ -46,8 +46,8 @@ export default function Navbar() {
               <Link to={ROUTES.CONTACTUS} className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
                 Contact Us
               </Link>
-              <Link to={ROUTES.COURSE}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
-                Courses
+              <Link to={ROUTES.ALLPRODUCT}><span className="hover:text-orange-600 cursor-pointer text-sm sm:text-base md:text-lg">
+                All Products
               </span></Link>
               
             </div>
@@ -100,9 +100,9 @@ export default function Navbar() {
             <Link to={ROUTES.CONTACTUS} className="hover:text-orange-600 cursor-pointer text-sm">
               Contact Us
             </Link>
-            <Link to={ROUTES.COURSE}>
+            <Link to={ROUTES.ALLPRODUCT}>
             <span className="hover:text-orange-600 cursor-pointer text-sm">
-             Courses
+             All Products
             </span></Link>
             {user ? (
           <div className="navbar-end">

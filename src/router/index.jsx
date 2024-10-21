@@ -19,6 +19,8 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Category from "../components/category/Category";
 import Profile from "../components/profile/Profile";
 import Product from "../components/product/Product";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
+import ProductListByCategory from "../pages/ProductListByCategory";
 //import CategoryForm from "../components/category/Category";
 
 
@@ -52,9 +54,13 @@ export const router = createBrowserRouter([
          
       },
         {
-          path: `${ROUTES.COURSE}`,
-          element: <CourseDetailsPage/>
+          path: `${ROUTES.ALLPRODUCT}`,
+          element: <ProductDetailsPage/>
          
+      },
+      {
+        path:`${ROUTES.PRODUCT_BY_CATEGORY.STATIC}`,
+        element:<ProductListByCategory/>
       },
         {
             path: "*",

@@ -22,7 +22,7 @@ export default function SingleCategoryList(props) {
       <h3 class="text-2xl text-center font-bold bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent">{category.name}</h3>
       </div>
       <div className="card-actions">
-        <Link to=""><button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">View Details</button></Link>
+        <Link to={ROUTES.PRODUCT_BY_CATEGORY.DYNAMIC(category.name)}><button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">View Products</button></Link>
       </div>
      
     </div>
