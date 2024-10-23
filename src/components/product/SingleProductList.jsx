@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaStar,FaPencilAlt } from "react-icons/fa";
 import { IoPricetag,IoTimeOutline } from "react-icons/io5";
 import { ImAddressBook } from "react-icons/im";
+import { ROUTES } from '../../routes';
 
 export default function SingleProductList(props) {
     const {product}=props
@@ -39,7 +40,7 @@ export default function SingleProductList(props) {
             </div>
           </div>
           <div className="card-actions mt-auto w-full flex justify-center"> {/* Adjust here for alignment */}
-            <Link to="">
+            <Link to={ROUTES.SINGLE_PRODUCT.DYNAMIC(product._id)}>
               <button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">
                 View Details
               </button>

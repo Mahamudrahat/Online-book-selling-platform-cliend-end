@@ -18,10 +18,12 @@ export default function Register() {
          const photo = form.get("photo");
          const email = form.get("email");
          const password = form.get("password");
-         console.log(name, photo, email, password);
+         const phone = form.get("phone");
+         const address = form.get("address");
+         console.log(name, photo, email, password,phone,address);
          const updateProfileInfo={displayName:name,photoURL:photo}
     
-        createUser(email, password,name,photo)
+        createUser(email, password,name,photo,phone,address)
           .then((result) => {
             console.log(result?.user);
             updateUserProfile(updateProfileInfo)
@@ -125,6 +127,52 @@ export default function Register() {
                         type="email"
                         name="email"
                         placeholder="email@example.com"
+                        autoComplete="on"
+                        required
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2">
+                    <label
+                      className="text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="email"
+                    >
+                      Phone:
+                    </label>
+                  </div>
+                  <div className="flex w-full rounded-lg pt-1">
+                    <div className="relative w-full">
+                      <input
+                        className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg"
+                        id="phone"
+                        type="text"
+                        name="phone"
+                        placeholder="+880"
+                        autoComplete="on"
+                        required
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2">
+                    <label
+                      className="text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="email"
+                    >
+                      Address:
+                    </label>
+                  </div>
+                  <div className="flex w-full rounded-lg pt-1">
+                    <div className="relative w-full">
+                      <input
+                        className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg"
+                        id="address"
+                        type="text"
+                        name="address"
+                        placeholder="Your Address"
                         autoComplete="on"
                         required
                       ></input>

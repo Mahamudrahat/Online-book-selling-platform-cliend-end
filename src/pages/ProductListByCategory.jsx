@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ImAddressBook } from 'react-icons/im';
 import { IoPricetag } from 'react-icons/io5';
 import { FaStar } from 'react-icons/fa';
+import { ROUTES } from '../routes';
 
 export default function ProductListByCategory() {
   let { name } = useParams(); // Get the category name from the URL
@@ -73,7 +74,7 @@ export default function ProductListByCategory() {
                 </div>
               </div>
               <div className="card-actions mt-auto w-full flex justify-center">
-                <Link to="">
+                <Link to={ROUTES.SINGLE_PRODUCT.DYNAMIC(product._id)}>
                   <button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">
                     View Details
                   </button>

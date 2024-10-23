@@ -21,6 +21,7 @@ import Profile from "../components/profile/Profile";
 import Product from "../components/product/Product";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProductListByCategory from "../pages/ProductListByCategory";
+import SingleProductDetailPage from "../pages/SingleProductDetailPage";
 //import CategoryForm from "../components/category/Category";
 
 
@@ -61,6 +62,13 @@ export const router = createBrowserRouter([
       {
         path:`${ROUTES.PRODUCT_BY_CATEGORY.STATIC}`,
         element:<ProductListByCategory/>
+      },
+      {
+        path:`${ROUTES.SINGLE_PRODUCT.STATIC}`,
+        element:<PrivateRoute>
+          <SingleProductDetailPage/>
+        </PrivateRoute>
+        
       },
         {
             path: "*",

@@ -1,11 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { FaStar,FaPencilAlt } from "react-icons/fa";
 import { IoPricetag,IoTimeOutline } from "react-icons/io5";
 import { ImAddressBook } from "react-icons/im";
+import { ROUTES } from '../routes';
+import BuyNow from '../components/BuyNow';
 
 export default function SingleProductDetailPage() {
     let {id}=useParams();
+    const [showModal, setShowModal] = useState(false); // Modal visibility state
+
+    // Handle modal open/close
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
     const [product,setProduct]=useState(null);
     const getProductDetail=async ()=>{
         console.log("product_id",id);
@@ -19,7 +26,7 @@ export default function SingleProductDetailPage() {
     useEffect(()=>{
         getProductDetail();
     },[]);
-    if(!course){
+    if(!product){
         return <div>Loading....</div>
     }
   return (
@@ -54,11 +61,11 @@ export default function SingleProductDetailPage() {
             </div>
           </div>
           <div className="card-actions mt-auto w-full flex justify-center"> {/* Adjust here for alignment */}
-            <Link to="">
-              <button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md">
+        
+              <button className="btn btn-primary bg-orange-900 text-white p-2 rounded-md"   onClick={handleShow}>
                 Buy Now
               </button>
-            </Link>
+              <BuyNow show={showModal} handleClose={handleClose} product={product} />
           </div>
         </div>
       </div>

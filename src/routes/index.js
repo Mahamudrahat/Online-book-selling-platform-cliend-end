@@ -20,11 +20,16 @@ export const ROUTES={
         DYNAMIC: (id) => `/course/${id}`,
 
     },
+   
     PRODUCT_BY_CATEGORY:{
          STATIC:"/product/:name",
          DYNAMIC:(name)=>`/product/${name}`
     },
+    SINGLE_PRODUCT:{
+        STATIC: "/products/:id",
+        DYNAMIC: (id) => `/products/${id}`,
 
+    },
     DASHBOARD:"/dashboard",
     Category:"categories",
     PRODUCT:"/dashboard/products"

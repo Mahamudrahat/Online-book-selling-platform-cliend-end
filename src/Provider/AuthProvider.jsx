@@ -23,7 +23,7 @@ export default function AuthProvider({children}) {
         return signInWithPopup(auth,googleProvider);
     }
 
-    const createUser=async (email,password,name,photo)=>{
+    const createUser=async (email,password,name,photo,phone,address)=>{
         //setLoading(true);
         try{
             const userCredential= await createUserWithEmailAndPassword(auth,email,password);
@@ -38,7 +38,9 @@ export default function AuthProvider({children}) {
                     uid: newUser.uid,
                    email: newUser.email,
                   displayName: name || "User",
-                 photoUrl: photo || "https://i.ibb.co/k6hTYW1/Alien-Dev.jpg"
+                 photoUrl: photo || "https://i.ibb.co/k6hTYW1/Alien-Dev.jpg",
+                 phone:phone,
+                 address:address
                 })  
             })
             if (!response.ok) {
