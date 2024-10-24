@@ -22,6 +22,10 @@ import Product from "../components/product/Product";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProductListByCategory from "../pages/ProductListByCategory";
 import SingleProductDetailPage from "../pages/SingleProductDetailPage";
+import ShowAllCategory from "../components/category/ShowAllCategory";
+import ShowAllProduct from "../components/product/ShowAllProduct";
+import AllUserList from "../components/User/AllUserList";
+import UserPaymentDetailsPage from "../pages/UserPaymentDetailsPage";
 //import CategoryForm from "../components/category/Category";
 
 
@@ -90,6 +94,7 @@ export const router = createBrowserRouter([
           path:`${ROUTES.CONTACTUS}`,
           element:<ContactUs/>,
         },
+        
 
 
         ]
@@ -97,7 +102,9 @@ export const router = createBrowserRouter([
     },
     {
       path: `${ROUTES.DASHBOARD}`,
-      element: <DashboardLayout />,
+      element: <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>,
       children:[
         {
           path: "",
@@ -112,6 +119,23 @@ export const router = createBrowserRouter([
           path:`${ROUTES.PRODUCT}`,
           element:<Product/>,
         },
+        {
+          path:`${ROUTES.SHOWALLCATEGORY}`,
+          element:<ShowAllCategory/>,
+        },
+        {
+          path:`${ROUTES.SHOWALLPRODUCT}`,
+          element:<ShowAllProduct/>,
+        },
+        {
+          path:`${ROUTES.SHOWALLUSERLIST}`,
+          element:<AllUserList/>,
+        },
+        {
+          path:`${ROUTES.PAYMENTDETAIL}`,
+          element:<UserPaymentDetailsPage/>,
+        },
+        
       ],
     }
   ]);

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const Category = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
+  
 
   
   const onSubmit = async (data) => {

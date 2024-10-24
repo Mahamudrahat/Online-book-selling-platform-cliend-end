@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../Provider/AuthProvider';
 import { CgProfile } from "react-icons/cg";
-import { MdBlock } from "react-icons/md";
+import { MdOutlinePayments } from "react-icons/md";
 import { Link, NavLink } from 'react-router-dom';
 
 import {
@@ -16,6 +16,9 @@ import { ROUTES } from '../../routes';
 
 export default function DashBoardLeftbar() {
     const { user } = useContext(AuthContext);
+    if (!user) {
+      return <div>Loading...</div>; // Render a loading state until the user data is available
+    }
   return (
     <div className="p-4">
            <div className="flex flex-row lg:flex-col items-start gap-2">
@@ -35,7 +38,7 @@ export default function DashBoardLeftbar() {
     {user?.isAdmin && (
      <>
                 <NavLink
-                  to="/dashboard/allUsers"
+                  to={ROUTES.SHOWALLUSERLIST}
                   className={({ isActive }) =>
                     isActive
                       ? "text-blue-600"
@@ -54,7 +57,7 @@ export default function DashBoardLeftbar() {
                   }
                 >
                   <BiSolidCategoryAlt className="inline mr-2" />
-                  Category
+                  Create Category
                 </Link>
                 <Link
                   to={ROUTES.PRODUCT}
@@ -65,22 +68,44 @@ export default function DashBoardLeftbar() {
                   }
                 >
                   <BiSolidCategoryAlt className="inline mr-2" />
-                  Products
+                  Create Products
+                </Link>
+                <Link
+                  to={ROUTES.SHOWALLCATEGORY}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-600"
+                      : "text-gray-600 hover:text-blue-500"
+                  }
+                >
+                  <BiSolidCategoryAlt className="inline mr-2" />
+                  Edit/Delete Category
+                </Link>
+                <Link
+                  to={ROUTES.SHOWALLPRODUCT}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-600"
+                      : "text-gray-600 hover:text-blue-500"
+                  }
+                >
+                  <BiSolidCategoryAlt className="inline mr-2" />
+                  Edit/Delete Product
                 </Link>
                 </>
             )}
-            {!user.isAdmin && (
+            {!user?.isAdmin && (
                 <>
                 <NavLink
-                to="/dashboard/messages"
+                to="/dashboard/paymentDetails"
                 className={({ isActive }) =>
                   isActive
                     ? "text-blue-600"
                     : "text-gray-600 hover:text-blue-500"
                 }
               >
-                <FaEnvelope className="inline mr-2" />
-                Messages
+                <MdOutlinePayments className="inline mr-2" />
+                Payment Details
               </NavLink>
         
                 </>

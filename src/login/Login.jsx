@@ -23,7 +23,7 @@ export default function Login() {
                 position:"top-right"
             });
 
-            navigate(location?.state ? location.state : "/");
+            navigate(location?.state ? location.state : "/dashboard");
         })
         .catch((error)=>{
             console.error(error);

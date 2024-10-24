@@ -32,5 +32,9 @@ export const ROUTES={
     },
     DASHBOARD:"/dashboard",
     Category:"categories",
-    PRODUCT:"/dashboard/products"
+    PRODUCT:"/dashboard/products",
+    SHOWALLCATEGORY:"/dashboard/show-category",
+    SHOWALLPRODUCT:"/dashboard/show-product",
+    SHOWALLUSERLIST:"/dashboard/userList",
+    PAYMENTDETAIL:"/dashboard/paymentDetails",
 }

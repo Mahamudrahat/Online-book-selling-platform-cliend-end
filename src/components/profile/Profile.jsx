@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { BiSolidEdit } from "react-icons/bi";
+import Swal from "sweetalert2";
 
 export default function Profile() {
   const { user } = useContext(AuthContext);
+ const [currentUser, setCurrentUser] = useState(user); 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     displayName: "",
@@ -15,26 +17,76 @@ export default function Profile() {
   // Open the edit modal with the user's current details
   const handleEditModelOpen = () => {
     setFormData({
-      displayName: user.displayName || "",
-      phone: user.phone || "",
-      photoUrl: user.photoUrl || "",
-      address: user.address || "",
+      displayName: currentUser.displayName || "",
+      phone: currentUser.phone || "",
+      photoUrl: currentUser.photoUrl || "",
+      address: currentUser.address || "",
     });
     setIsEditModalOpen(true);
   };
+
+  const handleEditSubmit = async () => {
+    
+    try {
+      
+      const updatedData = {
+        displayName: formData.displayName, // Updated name
+        photoUrl: formData.photoUrl, // Updated photo URL
+        address: formData.address, // Updated address
+        // Exclude phone from being updated
+      };
+  
+      // Make PUT request to update the user data except phone
+      const response = await fetch(`http://localhost:5000/user/${user._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      });
+  
+      if (response.ok) {
+        const updatedUser = await fetch(`http://localhost:5000/user/${currentUser._id}`);
+        const result = await updatedUser.json();
+
+        // Update the local state with the new data
+        setCurrentUser(result);
+        // Close the modal after successful update
+        setIsEditModalOpen(false);
+  
+        // Show success message
+        Swal.fire(
+          "Success!",
+          "Updated Data",
+          "success"
+        );
+      } else {
+        // Show error message in case the response is not ok
+        Swal.fire("Error!", "Something went wrong while updating.", "error");
+      }
+    } catch (error) {
+      // Handle any error that occurs during the API call
+      Swal.fire("Error!", "API call failed. Please try again.", "error");
+    }
+  };
+  
+
+  if (!user) {
+    return <div>Loading...</div>; // Render a loading state until the user data is available
+  }
 
   return (
     
 <div className="card bg-base-100 shadow-xl lg:h-[500px] sm:h-[700px] sm:w-[400px] lg:w-[700px] mx-auto p-4"> {/* Responsive width */}
       {/* Conditionally render the button based on isBlock */}
-      {!user?.isBlock && (
+      {!currentUser?.isBlock && (
         <button  className="flex justify-end items-end p-2" onClick={handleEditModelOpen}>
           <BiSolidEdit />
         </button>
       )}
       <figure className="px-4 pt-4">
         <img
-          src={user.photoUrl}
+          src={currentUser?.photoUrl}
           alt="profile pic"
           className="rounded-full w-20 h-20 mx-auto" // Center the image
         />
@@ -42,24 +94,30 @@ export default function Profile() {
      
       <div className="flex flex-col justify-center items-center">
       <h2 className="text-2xl font-bold text-gray-800">
-          {user?.displayName}
+          {currentUser?.displayName}
         </h2>
         <span
-          className={`font-bold ${user?.isBlock ? "text-red-500" : "text-green-500"}`}
+          className={`font-bold ${currentUser?.isBlock ? "text-red-500" : "text-green-500"}`}
         >
-          {user?.isBlock ? "Block" : "Active"}
+          {currentUser?.isBlock ? "Block" : "Active"}
         </span>
       </div>
       <div className="card-body items-center text-center">
   <div className="flex flex-col justify-start items-start space-y-2 w-full"> {/* Ensures full width */}
     <h1 className="font-sans font-bold text-sm sm:text-sm md:text-xl w-full text-left"> {/* Left align the text */}
-      Name: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{user?.displayName}</span>
+      Name: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{currentUser?.displayName}</span>
     </h1>
     <h1 className="font-sans font-bold text-sm sm:text-sm md:text-xl w-full text-left">
-      Role: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{user?.isAdmin ? "Admin" : "User"}</span>
+      Role: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{currentUser?.isAdmin ? "Admin" : "User"}</span>
     </h1>
     <h1 className="font-sans font-bold text-sm sm:text-sm md:text-xl w-full text-left">
-      Email: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{user?.email}</span>
+      Email: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{currentUser?.email}</span>
+    </h1>
+    <h1 className="font-sans font-bold text-sm sm:text-sm md:text-xl w-full text-left">
+      Phone: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{currentUser?.phone}</span>
+    </h1>
+    <h1 className="font-sans font-bold text-sm sm:text-sm md:text-xl w-full text-left">
+      Address: <span className="font-sans font-semibold text-sm sm:text-sm sm:px-0 lg:px-2">{currentUser?.address}</span>
     </h1>
   </div>
 </div>
@@ -88,6 +146,7 @@ export default function Profile() {
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
+              readOnly
             />
           </div>
           <div className="mb-4">
@@ -114,7 +173,7 @@ export default function Profile() {
           </div>
           <div className="flex justify-end">
             <button
-              onClick=""
+              onClick={handleEditSubmit}
               className="bg-blue-500 text-white p-2 rounded mr-2"
             >
               Update

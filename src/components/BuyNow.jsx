@@ -16,6 +16,7 @@ const BuyNow = ({ show, handleClose, product }) => {
     paymentAmount: product.price,  // assuming product has a price
     quantity: 1,  // default quantity
     userId:user.uid,
+   
   });
  console.log(formData);
   // Handle form input change
@@ -39,6 +40,7 @@ const BuyNow = ({ show, handleClose, product }) => {
         body: JSON.stringify({
           ...formData,
           productId: product.id, // passing product info
+          productName:product.name,
         }),
       });
 
