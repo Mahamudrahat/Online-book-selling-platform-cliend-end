@@ -15,7 +15,7 @@ const Product = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/categories") // Replace with your API endpoint
+        const response = await fetch("https://online-book-selling-platform-serverend-2.onrender.com/categories") // Replace with your API endpoint
         const data = await response.json();
         setCategories(data); // Assuming the API returns an array of categories
         setLoading(false);

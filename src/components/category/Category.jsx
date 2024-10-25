@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const Category = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
-  
+
 
   
   const onSubmit = async (data) => {
@@ -48,7 +48,7 @@ const Category = () => {
         image: imageUrlFromServer, // Use the uploaded image URL
       };
 
-      const categoryResponse = await fetch("http://localhost:5000/categories", {
+      const categoryResponse = await fetch("https://online-book-selling-platform-serverend-2.onrender.com/categories", {
         method: "POST",
         headers: {
           

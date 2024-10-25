@@ -26,7 +26,7 @@ export default function Navbar() {
         <header className="flex items-center justify-between">
         <div className="flex gap-4">
             <Link to={ROUTES.Home}><img src="https://media.istockphoto.com/id/1146021242/vector/distant-learning-online-education-graduate-hat-on-a-laptop.jpg?s=612x612&w=0&k=20&c=X3prrYH9KfPdDke0DGdnRjk-sKBgebP6byGMg-ce8Rc=" alt="" className="w-100 h-10 rounded-lg"/></Link>
-            <p className="font-serif font-[400]">Online Edu Care</p>
+            <p className="font-serif font-[400]">Online Edu Care BookShop</p>
           </div>
           {/* Navbar */}
         <nav>

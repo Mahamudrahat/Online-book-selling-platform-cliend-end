@@ -12,7 +12,7 @@ const ShowAllCategory = () => {
   useEffect(() => {
     // Simulate API call to get data
     const fetchData = async () => {
-      const data=await fetch("http://localhost:5000/categories");
+      const data=await fetch("https://online-book-selling-platform-serverend-2.onrender.com/categories");
       const result=await data.json();
       console.log(result); 
       if(result.length>0){
@@ -80,7 +80,7 @@ const ShowAllCategory = () => {
       
       
 
-      const response = await fetch(`http://localhost:5000/categories/update/${selectedItem._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/categories/update/${selectedItem._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const ShowAllCategory = () => {
       if (result.isConfirmed) {
         try {
           // Step 1: Make DELETE request to the server
-          const response = await fetch(`http://localhost:5000/categories/delete/${item._id}`, {
+          const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/categories/delete/${item._id}`, {
             method: "DELETE",
           });
   

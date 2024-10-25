@@ -1,13 +1,19 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 export default function AboutUs() {
   return (
-    <section class="bg-gray-50 py-8 sm:py-12">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <Helmet>
+        <title>Online Edu Care BookShop | About Us </title>
+        <meta name="description" content="Helmet application" />
+        </Helmet>
+        <section class="bg-gray-50 py-8 sm:py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
    
     <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-12">
       <h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center">
-        Online Edu Care: Revolutionizing Education in the Digital Age
+        Online Edu Care BookShop: Revolutionizing Education in the Digital Age
       </h1>
       <p class="text-lg text-gray-700 leading-relaxed mb-4">
         Online Edu Care is a modern approach to education, leveraging technology to provide learning opportunities to people across the globe. This system encompasses a wide range of tools and platforms designed to make education more accessible, flexible, and personalized, allowing learners to pursue their academic or professional goals from anywhere with an internet connection.
@@ -27,6 +33,8 @@ export default function AboutUs() {
     </div>
   </div>
 </section>
+    </>
+    
 
   )
 }

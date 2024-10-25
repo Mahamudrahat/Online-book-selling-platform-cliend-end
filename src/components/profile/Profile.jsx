@@ -37,7 +37,7 @@ export default function Profile() {
       };
   
       // Make PUT request to update the user data except phone
-      const response = await fetch(`http://localhost:5000/user/${user._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function Profile() {
       });
   
       if (response.ok) {
-        const updatedUser = await fetch(`http://localhost:5000/user/${currentUser._id}`);
+        const updatedUser = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/${currentUser._id}`);
         const result = await updatedUser.json();
 
         // Update the local state with the new data

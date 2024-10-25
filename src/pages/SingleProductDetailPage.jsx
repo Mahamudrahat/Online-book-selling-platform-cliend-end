@@ -5,6 +5,7 @@ import { IoPricetag,IoTimeOutline } from "react-icons/io5";
 import { ImAddressBook } from "react-icons/im";
 import { ROUTES } from '../routes';
 import BuyNow from '../components/BuyNow';
+import { Helmet } from 'react-helmet';
 
 export default function SingleProductDetailPage() {
     let {id}=useParams();
@@ -16,7 +17,7 @@ export default function SingleProductDetailPage() {
     const [product,setProduct]=useState(null);
     const getProductDetail=async ()=>{
         console.log("product_id",id);
-        const data=await fetch(`http://localhost:5000/products/${id}`)
+        const data=await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/products/${id}`)
         const result=await data.json();
         if (result) {
             setProduct(result);  // Set the found book to state
@@ -30,6 +31,11 @@ export default function SingleProductDetailPage() {
         return <div>Loading....</div>
     }
   return (
+    <>
+     <Helmet>
+        <title>Online Edu Care BookShop | Product Buy</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
     <div className="card card-compact bg-base-100 shadow-xl flex flex-col h-full">
         <figure className="px-10 pt-10">
           <img
@@ -69,6 +75,8 @@ export default function SingleProductDetailPage() {
           </div>
         </div>
       </div>
+    </>
+    
       
   )
 }

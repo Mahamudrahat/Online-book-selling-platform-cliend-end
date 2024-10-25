@@ -76,7 +76,7 @@ export default function AuthProvider({children}) {
             //setUser(currentUser);
             if(currentUser){
                 try{
-                    const res=await fetch(`http://localhost:5000/users/${currentUser.uid}`);
+                    const res=await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/users/${currentUser.uid}`);
                     if(!res.ok){
                         throw new Error("Failed to fetch user data.");
                     }

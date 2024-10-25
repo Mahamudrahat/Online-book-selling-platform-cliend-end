@@ -23,10 +23,10 @@ export default function DashBoardLeftbar() {
     <div className="p-4">
            <div className="flex flex-row lg:flex-col items-start gap-2">
            <nav className="flex flex-col gap-4">
-          <div className="flex gap-2">
+           <NavLink to={ROUTES.DASHBOARD} className="flex gap-2">
           <CgProfile size="25" color="teal"/> <span>Profile</span>
           
-          </div>
+          </NavLink>
 
           <hr className="my-4" />
           
@@ -37,6 +37,19 @@ export default function DashBoardLeftbar() {
     {/* Admin Links */}
     {user?.isAdmin && (
      <>
+
+<NavLink
+                to="/dashboard/paymentDetails"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-600"
+                    : "text-gray-600 hover:text-blue-500"
+                }
+              >
+                <MdOutlinePayments className="inline mr-2" />
+                Payment Details
+              </NavLink>
+           
                 <NavLink
                   to={ROUTES.SHOWALLUSERLIST}
                   className={({ isActive }) =>

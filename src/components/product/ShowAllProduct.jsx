@@ -12,7 +12,7 @@ const ShowAllProduct = () => {
   useEffect(() => {
     // Simulate API call to get data
     const fetchData = async () => {
-      const data=await fetch("http://localhost:5000/products");
+      const data=await fetch("https://online-book-selling-platform-serverend-2.onrender.com/products");
       const result=await data.json();
       console.log(result); 
       if(result.length>0){
@@ -83,7 +83,7 @@ const ShowAllProduct = () => {
       
       
 
-      const response = await fetch(`http://localhost:5000/products/update/${selectedItem._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/products/update/${selectedItem._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +122,7 @@ const ShowAllProduct = () => {
       if (result.isConfirmed) {
         try {
           // Step 1: Make DELETE request to the server
-          const response = await fetch(`http://localhost:5000/products/delete/${item._id}`, {
+          const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/products/delete/${item._id}`, {
             method: "DELETE",
           });
   
@@ -192,8 +192,8 @@ const ShowAllProduct = () => {
   </table>
 </div>
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 max-h-[80vh] overflow-y-auto">
             <h2 className="text-xl font-bold mb-4">Edit Product</h2>
             <label className="block mb-2">Name:</label>
             <input

@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 export default function Login() {
     const {loginUser,loginWithGoogle,loginWithGitHub}=useContext(AuthContext);
@@ -51,6 +52,12 @@ const handleGithubLogin=()=>{
     });
         }
   return (
+
+    <>
+    <Helmet>
+        <title>Online Edu Care BookShop | Login </title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
     <div>
      
       <div className="py-20">
@@ -121,7 +128,7 @@ const handleGithubLogin=()=>{
                         Login
                       </span>
                     </button>
-                    <button
+                    {/* <button
                       onClick={handleGoogleLogin}
                       type="button"
                       className="btn btn-outline btn-error mt-2"
@@ -134,7 +141,7 @@ const handleGithubLogin=()=>{
                       <span className="flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false">
                         Sign in with GitHub
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                 </form>
                 <div className="min-w-[270px]">
@@ -154,5 +161,7 @@ const handleGithubLogin=()=>{
         </div>
       </div>
     </div>
+    </>
+    
   )
 }

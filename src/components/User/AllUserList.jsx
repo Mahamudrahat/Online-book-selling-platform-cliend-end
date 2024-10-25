@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 
 // Sample data structure based on the given API response
@@ -12,7 +13,7 @@ const AllUserList = () => {
   useEffect(() => {
     // Simulate API call to get data
     const fetchData = async () => {
-      const data=await fetch("http://localhost:5000/users");
+      const data=await fetch("https://online-book-selling-platform-serverend-2.onrender.com/users");
       const result=await data.json();
       console.log(result); 
       if(result.length>0){
@@ -44,7 +45,7 @@ const AllUserList = () => {
       
         const categoryData = {
        
-            name: selectedItem.name,
+            displayName: selectedItem.displayName,
             photoUrl:selectedItem.photoUrl,
             address:selectedItem.address,
           
@@ -54,7 +55,7 @@ const AllUserList = () => {
       
       
 
-      const response = await fetch(`http://localhost:5000/user/${selectedItem._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/${selectedItem._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +94,7 @@ const AllUserList = () => {
       if (result.isConfirmed) {
         try {
           // Step 1: Make DELETE request to the server
-          const response = await fetch(`http://localhost:5000/user/delete/${item._id}`, {
+          const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/delete/${item._id}`, {
             method: "DELETE",
           });
   
@@ -122,7 +123,7 @@ const AllUserList = () => {
   const handleMakeAdmin = async (item, status) => {
     try {
       // Make PUT request to update the isAdmin status
-      const response = await fetch(`http://localhost:5000/user/role/${item._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/role/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -159,7 +160,7 @@ const AllUserList = () => {
   const handleBlock = async (item, status) => {
     try {
       // Make PUT request to update the isAdmin status
-      const response = await fetch(`http://localhost:5000/user/update/BlockStatus/${item._id}`, {
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/user/update/BlockStatus/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -195,9 +196,15 @@ const AllUserList = () => {
   };
   
   return (
+    <>
+    <Helmet>
+        <title>Online Edu Care BookShop | User List</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
     <div className="container mx-auto mt-8">
       <h1 className="text-2xl font-bold mb-6">Users List</h1>
 <div className="overflow-x-auto rounded-lg shadow-lg">
+<div className="w-full">
   <table className="min-w-full bg-white border border-gray-300 ">
     <thead>
       <tr>
@@ -275,58 +282,67 @@ const AllUserList = () => {
       ))}
     </tbody>
   </table>
+  </div>
 </div>
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3">
-            <h2 className="text-xl font-bold mb-4">Edit "{selectedItem.displayName}"s Profile</h2>
-            <label className="block mb-2">Name:</label>
-            <input
-              type="text"
-              value={selectedItem.displayName}
-              onChange={(e) =>
-                setSelectedItem({ ...selectedItem, displayName: e.target.value })
-              }
-              className="w-full border border-gray-300 p-2 rounded mb-4"
-            />
-             <label className="block mb-2">photoUrl:</label>
-            <input
-              type="text"
-              value={selectedItem.photoUrl}
-              onChange={(e) =>
-                setSelectedItem({ ...selectedItem, photoUrl: e.target.value })
-              }
-              className="w-full border border-gray-300 p-2 rounded mb-4"
-            />
-             <label className="block mb-2">Address:</label>
-            <input
-              type="text"
-              value={selectedItem.address}
-              onChange={(e) =>
-                setSelectedItem({ ...selectedItem, address: e.target.value })
-              }
-              className="w-full border border-gray-300 p-2 rounded mb-4"
-            />
+{isModalOpen && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-md md:max-w-lg">
+      <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-center">
+        Edit "{selectedItem.displayName}"'s Profile
+      </h2>
+      
+      <label className="block mb-1 md:mb-2 text-sm md:text-base">Name:</label>
+      <input
+        type="text"
+        value={selectedItem.displayName}
+        onChange={(e) =>
+          setSelectedItem({ ...selectedItem, displayName: e.target.value })
+        }
+        className="w-full border border-gray-300 p-2 rounded mb-3"
+      />
 
-            <div className="flex justify-end">
-              <button
-                className="bg-gray-500 text-white py-2 px-4 rounded mr-2"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="bg-blue-500 text-white py-2 px-4 rounded"
-                onClick={handleSaveEdit}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <label className="block mb-1 md:mb-2 text-sm md:text-base">Photo URL:</label>
+      <input
+        type="text"
+        value={selectedItem.photoUrl}
+        onChange={(e) =>
+          setSelectedItem({ ...selectedItem, photoUrl: e.target.value })
+        }
+        className="w-full border border-gray-300 p-2 rounded mb-3"
+      />
+
+      <label className="block mb-1 md:mb-2 text-sm md:text-base">Address:</label>
+      <input
+        type="text"
+        value={selectedItem.address}
+        onChange={(e) =>
+          setSelectedItem({ ...selectedItem, address: e.target.value })
+        }
+        className="w-full border border-gray-300 p-2 rounded mb-4"
+      />
+
+      <div className="flex flex-col sm:flex-row sm:justify-end gap-2 mt-4">
+        <button
+          className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition-colors"
+          onClick={() => setIsModalOpen(false)}
+        >
+          Cancel
+        </button>
+        <button
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          onClick={handleSaveEdit}
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     
     </div>
+    </>
+    
   );
 };
 

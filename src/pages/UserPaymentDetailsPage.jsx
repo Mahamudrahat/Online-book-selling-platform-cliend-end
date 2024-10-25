@@ -5,10 +5,12 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { ImAddressBook } from 'react-icons/im'; // Make sure you import these
 import { IoPricetag } from 'react-icons/io5'; // Same as above
 import { MdProductionQuantityLimits } from "react-icons/md";
+import { Helmet } from 'react-helmet';
 
 export default function UserPaymentDetailsPage() {
     const { user } = useContext(AuthContext);
     const [paymentDetail, setPayment] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getPayment = async () => {
         console.log("Fetching payment details...");
@@ -18,12 +20,14 @@ export default function UserPaymentDetailsPage() {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/purchase/${user.uid}`); // Fixed endpoint
+            setLoading(true)
+            const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/purchase/${user.uid}`); // Fixed endpoint
             const result = await response.json();
             console.log("Payment Details:", result);
 
             if (result && Array.isArray(result)) {
                 setPayment(result); // Set the payment details state
+                setLoading(false);
             } else {
                 console.error("Unexpected result format", result);
             }
@@ -31,11 +35,11 @@ export default function UserPaymentDetailsPage() {
             console.error("Error fetching payment details:", error);
         }
     };
-
+    
     useEffect(() => {
         getPayment(); // Call getPayment on component mount
     }, [user]); // Dependency on user to ensure it runs again if user changes
-
+    if (loading) return <div>Loading...</div>;
     // Calculate the total price only if paymentDetail is not empty
     const totalPrice = paymentDetail.length > 0 
         ? paymentDetail.reduce((acc, payment) => acc + Number(payment.paymentAmount), 0) // Sum all prices directly
@@ -43,6 +47,10 @@ export default function UserPaymentDetailsPage() {
 
     return (
         <>
+        <Helmet>
+        <title>Online Edu Care BookShop | Payment Details</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
             <div><h1 className="text-lg font-sans font-bold">Total Purchase Amount: {totalPrice}</h1></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {paymentDetail.length > 0 ? (

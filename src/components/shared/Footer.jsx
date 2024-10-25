@@ -9,11 +9,11 @@ export default function Footer() {
         Online Edu Care 2012
       </p>
 
-      <p>@ All Rights Reserved. Online Edu Care</p>
+      <p>@ All Rights Reserved. Online Edu Care BookShop. Developed By Mahamud</p>
     </aside>
   
     <nav>
-      <h6 class="footer-title">Online Edu Care</h6>
+      <h6 class="footer-title">Online Edu Care BookShop</h6>
       <p><i class="fa-brands fa-facebook"></i><span class="m-2"><a href="https://www.facebook.com" target="_blank">Facebook</a></span></p>
       <p><i class="fa-brands fa-youtube"></i><span class="m-2"><a href="https://www.youtube.com" target="_blank">YouTube</a></span></p>
       <p class="">Contact: Lal Bag, Old Town, Dhaka</p>

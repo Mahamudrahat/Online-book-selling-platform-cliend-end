@@ -32,7 +32,7 @@ const BuyNow = ({ show, handleClose, product }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/puchase', {
+      const response = await fetch('https://online-book-selling-platform-serverend-2.onrender.com/puchase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

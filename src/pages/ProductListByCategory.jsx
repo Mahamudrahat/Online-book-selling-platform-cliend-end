@@ -14,7 +14,7 @@ export default function ProductListByCategory() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/products/category/${name || ''}`); // Fetch products by category
+      const response = await fetch(`https://online-book-selling-platform-serverend-2.onrender.com/products/category/${name || ''}`); // Fetch products by category
 
       // Check if the response is not JSON (e.g., it's an HTML error page)
       const contentType = response.headers.get("content-type");
