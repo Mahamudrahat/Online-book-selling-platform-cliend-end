@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../Provider/AuthProvider'
 import toast from 'react-hot-toast';
 import { signOut } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 
 export default function Register() {
     const {createUser,updateUserProfile,logOut}=useContext(AuthContext);
@@ -48,6 +49,12 @@ export default function Register() {
       };
       
   return (
+
+    <>
+     <Helmet>
+        <title>Online Edu Care BookShop | Register </title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
     <div>
     
     <div className="py-20">
@@ -228,5 +235,7 @@ export default function Register() {
       </div>
     </div>
   </div>
+    </>
+    
   )
 }
