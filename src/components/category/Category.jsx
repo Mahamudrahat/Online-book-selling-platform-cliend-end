@@ -36,10 +36,10 @@ const Category = () => {
       if (!imageUploadResponse.ok) {
         throw new Error("Failed to upload image.");
       }
-
+      
       const imageUploadData = await imageUploadResponse.json();
       const imageUrlFromServer = imageUploadData.data.url;
-      console.log(imageUrlFromServer);
+      
 
       // Step 2: Post category data along with the image URL
       const categoryData = {

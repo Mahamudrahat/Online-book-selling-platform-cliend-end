@@ -15,7 +15,7 @@ export default function SingleCategoryList(props) {
       <img
         src={category.image}
         alt=""
-        className="rounded-xl" />
+        className="rounded-xl w-20 h-20" />
     </figure>
     <div className="card-body items-center text-center">
       <div class="p-4 text-center">
