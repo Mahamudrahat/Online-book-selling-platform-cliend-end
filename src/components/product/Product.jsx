@@ -73,7 +73,7 @@ const Product = () => {
         category:data.category
       };
 
-      const categoryResponse = await fetch("http://localhost:5000/products", {
+      const categoryResponse = await fetch("https://online-book-selling-platform-serverend-2.onrender.com/products", {
         method: "POST",
         headers: {
          
